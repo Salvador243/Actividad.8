@@ -6,7 +6,7 @@ public class Deck {
 
     private final String[] Palo = {"corazones", "diamantes", "trébol", "picas"};
     private final String[] Color = {"rojo", "negro"};
-    private final String[] Valor = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "J", "Q", "K"};
+    private final String[] Valor = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "J", "Q", "K"};
 
     private ArrayList<Card> deck;
 
@@ -44,37 +44,47 @@ public class Deck {
         System.out.println("***************************************************");
     }
 
-    public void head(){
-        System.out.println("***************************************************");
-        System.out.println("Primera carta del head");
-        System.out.println(deck.get(0));
-        deck.remove(0);
-        System.out.println("Quedan " + deck.size() + " cartas");
-        System.out.println("***************************************************");
-
+    public void head() throws Exception {
+        try {
+            System.out.println("***************************************************");
+            System.out.println("Primera carta del head");
+            System.out.println(deck.get(0));
+            deck.remove(0);
+            System.out.println("Quedan " + deck.size() + " cartas");
+            System.out.println("***************************************************");
+        } catch (Exception e) {
+            System.out.println("Se han agotado las cartas");
+        }
     }
 
 
     public void pick() {
-        Random random = new Random();
-        int valor = random.nextInt(deck.size());
-        System.out.println("***************************************************");
-        System.out.println("Metodo pick");
-        System.out.println(deck.get(valor));
-        deck.remove(valor);
-        System.out.println("Quedan " + deck.size() + " cartas");
-        System.out.println("***************************************************");
-
+        try {
+            Random random = new Random();
+            int valor = random.nextInt(deck.size());
+            System.out.println("***************************************************");
+            System.out.println("Metodo pick");
+            System.out.println(deck.get(valor));
+            deck.remove(valor);
+            System.out.println("Quedan " + deck.size() + " cartas");
+            System.out.println("***************************************************");
+        } catch (Exception e) {
+            System.out.println("Se han agotado las cartas");
+        }
     }
 
     public void hand() {
-        System.out.println("***************************************************");
-        System.out.println("Metodo hand");
-        for(int i=0; i<=4; i++){
-            System.out.println(deck.get(i));
-            deck.remove(i);
+        try {
+            System.out.println("***************************************************");
+            System.out.println("Metodo hand");
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(deck.get(i));
+                deck.remove(i);
+            }
+            System.out.println("Quedan " + deck.size() + " cartas");
+            System.out.println("***************************************************");
+        } catch (Exception e) {
+            System.out.println("Se han agotado las cartas");
         }
-        System.out.println("Quedan " + deck.size()+ " cartas");
-        System.out.println("***************************************************");
     }
 }
